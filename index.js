@@ -62,7 +62,12 @@ function writeToFile(fileName, data) {
   });
 }
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer.prompt(questions)
+  .then(function (userInput) {
+    writeToFile("ReadMe.md", generateMarkDown(userInput))
+  });
+}
 
 // Function call to initialize app
 init();
