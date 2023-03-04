@@ -1,11 +1,12 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkDown = require('./utils/generateMarkdown.js');
 
-// TODO: Create an array of questions for user input
+// An array of questions for user input
 const questions = [
   {
+    // Title
     type: 'input',
     name: 'title',
     message: 'What will the title of the project be?',
@@ -19,6 +20,7 @@ const questions = [
     }
   },
   {
+    // Description
     type: 'input',
     name: 'description',
     message: 'Please describe your project.',
@@ -32,6 +34,7 @@ const questions = [
     }
   },
   {
+    // Installation
     type: 'input',
     name: 'installation',
     message: 'How can someone install this project?',
@@ -45,6 +48,7 @@ const questions = [
     }
   },
   {
+    // Usage
     type: 'input',
     name: 'usage',
     message: 'Provide instructions and examples on how to use this project.',
@@ -58,6 +62,7 @@ const questions = [
     }
   },
   {
+    // License
     type: 'list',
     name: 'license',
     message: 'Which licence did you use?',
@@ -72,6 +77,7 @@ const questions = [
     }
   },
   {
+    // Contribution
     type: 'input',
     name: 'contribution',
     message: 'Provide guidelines on how others can contribute to this project',
@@ -85,6 +91,7 @@ const questions = [
     }
   },
   {
+    // Test
     type: 'input',
     name: 'test',
     message: 'How did you test this project? Provide some examples on how to run them.',
@@ -98,6 +105,7 @@ const questions = [
     }
   },
   {
+    // Github
     type: 'input',
     name: 'github',
     message: 'Please add your github username',
@@ -111,6 +119,7 @@ const questions = [
     }
   },
   {
+    // Email
     type: 'input',
     name: 'email',
     message: 'Please add your email address',
@@ -125,7 +134,7 @@ const questions = [
   }
 ];
 
-// TODO: Create a function to write README file
+// Function to write README file
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (error) => {
     if (error)
@@ -133,7 +142,7 @@ function writeToFile(fileName, data) {
       console.log('Awsome! Your ReadMe has been generated!')
   });
 }
-// TODO: Create a function to initialize app
+// Function to initialize app
 function init() {
   inquirer.prompt(questions)
   .then(function (userInput) {
